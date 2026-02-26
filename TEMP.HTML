@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gift-box-trigger {
+  text-align: center;
+  cursor: pointer;
+}
+
+.gift-box-trigger img {
+  width: 250px;
+  transition: transform 0.3s ease;
+}
+
+.gift-box-trigger img:hover {
+  transform: scale(1.05);
+}
+    </style>
+</head>
+<body>
+    <section class="gift-section">
+
+  <!-- Clickable Gift Image -->
+  <div class="gift-box-trigger">
+    <img src="giftbox.png" alt="Open Gift">
+  </div>
+
+  <!-- Scratch overlay (hidden at first) -->
+  <div class="scratch-overlay hidden">
+    <canvas id="giftScratchCanvas"></canvas>
+    <div class="scratch-text">Scratch to Reveal Gift Therapy</div>
+  </div>
+
+  <!-- Gift content -->
+  <div class="gift-container">
+    ...
+  </div>
+
+</section>
+</body>
+</html>
+<script>
+    
+  const giftTrigger = document.querySelector(".gift-box-trigger");
+  const scratchOverlay = document.querySelector(".scratch-overlay");
+
+  giftTrigger.addEventListener("click", () => {
+    scratchOverlay.classList.remove("hidden");
+    giftTrigger.style.display = "none";
+  });
+</script>
